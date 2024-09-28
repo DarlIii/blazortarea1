@@ -1,0 +1,56 @@
+@page "/calculadora"
+
+<h1>Calculadora Básica 🔢</h1>
+
+<div>
+    <label>Número 1:</label>
+    <input type="number" @bind-value="numero1" />
+
+    <label>Número 2:</label>
+    <input type="number" @bind-value="numero2" />
+</div>
+
+<div>
+    <button @onclick="Suma">Suma ➕</button>
+    <button @onclick="Resta">Resta ➖</button>
+    <button @onclick="Multiplicacion">Multiplicación ✖️</button>
+    <button @onclick="Division">División ➗</button>
+</div>
+
+@if (!string.IsNullOrEmpty(resultado))
+{
+    <p>Resultado: @resultado</p>
+}
+
+@code {
+    private double numero1;
+    private double numero2;
+    private string resultado;
+
+    void Suma()
+    {
+        resultado = (numero1 + numero2).ToString();
+    }
+
+    void Resta()
+    {
+        resultado = (numero1 - numero2).ToString();
+    }
+
+    void Multiplicacion()
+    {
+        resultado = (numero1 * numero2).ToString();
+    }
+
+    void Division()
+    {
+        if (numero2 != 0)
+        {
+            resultado = (numero1 / numero2).ToString();
+        }
+        else
+        {
+            resultado = "Error: No se puede dividir entre 0";
+        }
+    }
+}

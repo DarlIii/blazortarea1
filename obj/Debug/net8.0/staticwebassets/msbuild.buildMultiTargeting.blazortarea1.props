@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\blazortarea1.props" />
+</Project>

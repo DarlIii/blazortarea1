@@ -1,0 +1,36 @@
+@page "/AprendeMas"
+<PageTitle>Aprende Mas</PageTitle>
+<h1>Aprende Mas</h1>
+
+<p>Videos Importantes para aprender a programar en Blazor.</p>
+
+<div class="row">
+    @foreach (var video in videos)
+    {
+        <div class="col-md-4">
+             <div class="card">
+                    <img class="card-img-top" src="http://i3.ytimg.com/vi/@video.Url/hqdefault.jpg" alt="Imagen del video @video.Titulo">
+                    <div class="card-body">
+                        <h5 class="card-title">@video.Titulo</h5>
+                        <p class="card-text">Este video es muy útil para aprender sobre Blazor.</p>
+                        <a href="https://www.youtube.com/watch?v=@video.Url" class="btn btn-primary" target="_blank">Ver Video</a>
+                    </div>
+            </div>
+        </div> 
+    }
+</div> 
+
+@code{
+    class Video{
+        public string Titulo { get; set; }
+        public string Url {get; set; }
+    }
+
+    List<Video> videos = new List<Video>{
+        new Video{Titulo = "Blazor en 10 minutos, Me gusta este video porque da una breve explicacion de blazor en 10 minutos", Url = "VDkiB5F7FH0"},
+        new Video{Titulo = "Blazor - ¿Qué es NUEVO en .NET 8?, Me gusta este video porque explica blazor usando visual estudio 2022.", Url = "hAFFyEUpQnA"},
+        new Video{Titulo = "Instalación de Visual Studio Code, Este video me gusta porque aprendes a instalar y configurar blazor con visual estudio code", Url = "kTMnwAHa_JY"},
+        new Video{Titulo = "Extensiones para Blazor, Este video me gusta porque aprendes algunas extenciones que puedes usar con blazor en visual estudio", Url = "tBbzoLIAh3U"},
+        new Video{Titulo = "Introducción a Blazor, Este video me gusta porque explica los funcionamientos basicos de blazor", Url = "hwzzpOq0MIg"}
+    };
+}
